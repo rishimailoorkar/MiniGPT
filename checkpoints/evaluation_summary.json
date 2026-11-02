@@ -1,0 +1,11 @@
+{
+  "model_parameters": 2685696,
+  "checkpoint_size_mb": 30.89,
+  "initial_train_loss": 4.3342,
+  "final_train_loss": 0.6205,
+  "best_val_loss": 2.1575,
+  "best_val_step": 500,
+  "best_val_perplexity": 8.65,
+  "total_training_seconds": 131.2,
+  "inference_tokens_per_sec": 198.0
+}

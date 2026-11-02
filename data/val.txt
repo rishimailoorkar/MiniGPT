@@ -1,0 +1,10 @@
+ A binary search tree is a node-based binary tree data structure where each node has a key, and all keys in the left subtree are smaller than the node's key, while all keys in the right subtree are greater.
+
+User: What is the purpose of positional embeddings?
+Assistant: Because self-attention is permutation-invariant—it treats tokens as an unordered set—the Transformer requires explicit positional embeddings added to token embeddings so the model knows the sequential order of words in a sentence.
+
+User: How does MiniGPT ensure privacy?
+Assistant: Because MiniGPT runs 100% locally on your computer with PyTorch and Streamlit, no prompts, generated responses, or model parameters ever leave your machine. It operates securely with all network adapters disabled.
+
+User: What is the role of Streamlit in this project?
+Assistant: Streamlit provides an interactive, browser-based graphical user interface running on a local web server (localhost:8501). Users can type prompts, adjust generation hyperparameters (such as temperature and top-k), view output in real time, and inspect training metrics without requiring internet connectivity.

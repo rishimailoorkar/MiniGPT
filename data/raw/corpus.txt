@@ -1,0 +1,106 @@
+# MiniGPT Training Corpus: Computer Science, Artificial Intelligence, and Dialogue Knowledge Base
+
+User: What is Artificial Intelligence?
+Assistant: Artificial Intelligence (AI) is a branch of computer science focused on building smart machines capable of performing tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation.
+
+User: What is Machine Learning?
+Assistant: Machine Learning is a subset of artificial intelligence where algorithms learn patterns directly from data rather than following strictly handcrafted rules. As the model processes more examples, its prediction accuracy improves.
+
+User: What is Deep Learning?
+Assistant: Deep Learning is a specialized field of machine learning based on artificial neural networks with multiple layers. These deep architectures can automatically extract hierarchical representations and complex features from raw text, audio, and visual inputs.
+
+User: What is a Transformer?
+Assistant: A Transformer is a deep learning architecture introduced in the 2017 paper "Attention Is All You Need". Unlike Recurrent Neural Networks (RNNs) that process words sequentially, Transformers process all tokens simultaneously using self-attention mechanisms, enabling massive parallelization during training.
+
+User: How does the Self-Attention mechanism work?
+Assistant: Self-attention enables a model to weigh the relative importance of different words in a sentence when computing the representation of a specific word. For every token, the network computes three vectors: Query (Q), Key (K), and Value (V). The attention weights are calculated by taking the dot product of Query and Key, scaling by the square root of the dimension, and applying a softmax function. Finally, the weights are multiplied with the Value vectors.
+
+User: What is a causal mask in a decoder-only Transformer?
+Assistant: A causal mask is an upper-triangular matrix of negative infinities applied to attention logits before softmax. It ensures that when predicting token t, the model can only attend to earlier tokens (indices less than or equal to t) and cannot peek at future tokens. This preserves the autoregressive property.
+
+User: What is MiniGPT?
+Assistant: MiniGPT is a lightweight, decoder-only small language model developed from scratch in PyTorch. It runs entirely offline on local hardware, processing text and generating autoregressive responses without external cloud dependencies or API keys.
+
+User: What is Python?
+Assistant: Python is a high-level, interpreted programming language known for its clean syntax and readability. It provides powerful libraries for scientific computing and machine learning, including PyTorch, NumPy, and Pandas.
+
+User: Explain the difference between supervised and unsupervised learning.
+Assistant: Supervised learning trains a model using labeled input-output pairs to predict target values. Unsupervised learning uncovers hidden structures, clusters, or distributions within unlabeled data. Language modeling is often framed as self-supervised learning, where the next token in raw text serves as its own label.
+
+User: What is an algorithm?
+Assistant: An algorithm is a well-defined sequence of step-by-step computational instructions designed to solve a specific problem or perform a task accurately.
+
+User: What is a neural network?
+Assistant: An artificial neural network is a computational system composed of interconnected nodes called neurons. Each connection has an adjustable weight. By computing weighted sums followed by nonlinear activation functions, neural networks can approximate complex nonlinear mathematical functions.
+
+User: What is Backpropagation?
+Assistant: Backpropagation is the core algorithm used to train neural networks. It calculates the gradient of the loss function with respect to every weight in the network using the chain rule of calculus, allowing gradient descent optimizers to update parameters and reduce error.
+
+User: What is Cross-Entropy Loss?
+Assistant: Cross-entropy loss measures the performance of a classification or language model whose output is a probability distribution between 0 and 1. In next-token prediction, it penalizes the model based on the log probability assigned to the actual true ground-truth token.
+
+User: What is Temperature in text generation?
+Assistant: Temperature is a hyperparameter that scales the logits before the softmax operation during sampling. A lower temperature (such as 0.2) sharpens the probability distribution, making the output more deterministic and conservative. A higher temperature (such as 0.8) flattens the distribution, leading to more creative and diverse word choices.
+
+User: What is Top-k sampling?
+Assistant: Top-k sampling restricts the next token choice to the k most probable tokens. The probabilities of these top k tokens are normalized, and the next token is sampled from this reduced set, preventing the model from picking extremely unlikely or nonsensical tokens.
+
+User: What is an Operating System?
+Assistant: An Operating System (OS) is system software that manages computer hardware, system resources, and common services for application programs. Key responsibilities include CPU scheduling, memory allocation, file systems, and hardware input-output communication.
+
+User: Explain CPU caching and memory hierarchy.
+Assistant: The memory hierarchy organizes storage based on speed and capacity. Registers and L1/L2/L3 CPU caches are the fastest but smallest storage layers located directly on the processor die. System RAM is larger but slower, while secondary storage like SSDs provides persistent, high-capacity storage.
+
+User: What is PyTorch?
+Assistant: PyTorch is an open-source machine learning framework developed primarily by Meta's AI Research lab. It provides dynamic computational graphs, automatic differentiation via Autograd, and intuitive tensor operations optimized for both CPU and GPU execution.
+
+User: What is an embedding in NLP?
+Assistant: An embedding is a dense vector representation of a discrete symbol (such as a word, subword, or character) in a continuous vector space. Semantically similar tokens are positioned closer to each other in this learned multi-dimensional space.
+
+User: What is Layer Normalization?
+Assistant: Layer Normalization normalizes the activations across the feature dimension for each training sample independently. Unlike Batch Normalization, Layer Normalization does not depend on batch statistics, making it ideal for sequence models and autoregressive Transformers.
+
+User: What is a Feed-Forward Network in a Transformer block?
+Assistant: Each Transformer block contains a Position-wise Feed-Forward Network (FFN) following the multi-head attention layer. It typically consists of two linear transformations with a nonlinear activation function (such as GELU or ReLU) in between. It processes the representation at each position independently.
+
+User: Why are residual connections important in deep networks?
+Assistant: Residual connections (skip connections) add the input of a layer directly to its output: Output = Layer(x) + x. This creates an uninterrupted identity gradient highway, mitigating the vanishing gradient problem and allowing networks with many layers to train smoothly.
+
+User: What is Perplexity?
+Assistant: Perplexity is an evaluation metric for language models. It is the exponentiated cross-entropy loss: Perplexity = exp(Loss). A lower perplexity indicates that the model is more confident and accurate in predicting upcoming tokens.
+
+User: What is greedy decoding?
+Assistant: Greedy decoding selects the single token with the highest predicted probability at every time step: token = argmax(logits). While computationally simple and deterministic, it can lead to repetitive text loops and lack diversity.
+
+User: What is offline computing?
+Assistant: Offline computing refers to the execution of software applications entirely on a local device without transmitting data over the internet or contacting remote servers. It ensures absolute data privacy, zero latency variance, and independence from network outages.
+
+User: Explain the difference between Encoder and Decoder Transformers.
+Assistant: An Encoder Transformer (like BERT) uses bidirectional self-attention to understand context from both left and right directions, making it ideal for classification and feature extraction. A Decoder Transformer (like GPT) uses causal masked self-attention to generate text from left to right, making it ideal for autoregressive text generation.
+
+User: What is AdamW?
+Assistant: AdamW is an optimization algorithm that decouples weight decay (L2 regularization) from gradient updates in the standard Adam optimizer. This leads to better generalization and more stable convergence when training deep Transformer architectures.
+
+User: How does MiniGPT generate complete paragraphs?
+Assistant: MiniGPT begins with a user-provided prompt string. It tokenizes the prompt into token IDs, feeds them through the Transformer network, obtains the logits for the final token position, applies temperature and top-k filtering, and samples a new token. This newly predicted token is appended to the context, and the process repeats iteratively until reaching the maximum sequence length.
+
+User: What is data preprocessing?
+Assistant: Data preprocessing involves cleaning, filtering, normalizing, and structuring raw text data before feeding it into machine learning algorithms. Effective preprocessing removes noise, standardizes formatting, and improves model convergence.
+
+User: What is a hyperparameter?
+Assistant: A hyperparameter is an external configuration parameter whose value is set before the training process begins, rather than learned directly from data. Examples include learning rate, batch size, number of layers, embedding dimension, and number of attention heads.
+
+User: Explain Big-O notation.
+Assistant: Big-O notation is a mathematical notation that describes the limiting behavior of an algorithm as the input size grows. It characterizes the worst-case time or space complexity, such as O(1) for constant time, O(n) for linear time, and O(n log n) for efficient sorting.
+
+User: What is a binary search tree?
+Assistant: A binary search tree is a node-based binary tree data structure where each node has a key, and all keys in the left subtree are smaller than the node's key, while all keys in the right subtree are greater.
+
+User: What is the purpose of positional embeddings?
+Assistant: Because self-attention is permutation-invariant—it treats tokens as an unordered set—the Transformer requires explicit positional embeddings added to token embeddings so the model knows the sequential order of words in a sentence.
+
+User: How does MiniGPT ensure privacy?
+Assistant: Because MiniGPT runs 100% locally on your computer with PyTorch and Streamlit, no prompts, generated responses, or model parameters ever leave your machine. It operates securely with all network adapters disabled.
+
+User: What is the role of Streamlit in this project?
+Assistant: Streamlit provides an interactive, browser-based graphical user interface running on a local web server (localhost:8501). Users can type prompts, adjust generation hyperparameters (such as temperature and top-k), view output in real time, and inspect training metrics without requiring internet connectivity.

@@ -1,0 +1,19 @@
+# MiniGPT Offline Dependencies
+torch>=2.0.0
+numpy>=1.24.0
+streamlit>=1.25.0
+matplotlib>=3.7.0
+tqdm>=4.65.0
+
+# -------------------------------------------------------------
+# OFFLINE INSTALLATION INSTRUCTIONS:
+# If you need to install these packages on a machine with NO internet:
+#
+# 1. On an internet-connected computer, run:
+#    pip download -r requirements.txt -d ./offline_wheels
+#
+# 2. Transfer the 'offline_wheels' folder to your offline PC using a USB drive.
+#
+# 3. On your offline PC, install without internet:
+#    pip install --no-index --find-links=./offline_wheels -r requirements.txt
+# -------------------------------------------------------------
